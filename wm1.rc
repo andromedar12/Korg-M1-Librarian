@@ -1,0 +1,74 @@
+/*
+
+    wm1.rc
+
+    Copyright (C) 2002 Angel Ortega <angel@triptico.com>
+
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public License
+    as published by the Free Software Foundation; either version 2
+    of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+    http://www.triptico.com
+
+*/
+
+#include <windows.h>
+#include "wm1.h"
+
+WM1 ICON wm1.ico
+
+WM1 DIALOG 52, 23, 180, 227
+STYLE 0x4 |DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX
+CAPTION "WM1"
+FONT 8, "MS Sans Serif"
+BEGIN
+	CONTROL "", WM1_LSTBANK, "LISTBOX", LBS_NOTIFY | LBS_MULTIPLESEL | LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL, 4, 20, 84, 148
+	CONTROL "", WM1_LSTM1, "LISTBOX", LBS_NOTIFY | LBS_MULTIPLESEL | LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL, 92, 20, 84, 148
+	CONTROL "Send all", WM1_ALLBANK, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP, 4, 4, 84, 12
+	CONTROL "Receive all", WM1_ALLM1, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP, 92, 4, 84, 12
+	PUSHBUTTON "&Open library...", WM1_OPEN, 4, 172, 64, 12, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	PUSHBUTTON "S&ave library...", WM1_SAVE, 112, 172, 64, 12, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	PUSHBUTTON "-->", WM1_RIGHT, 72, 172, 16, 12, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	PUSHBUTTON "<--", WM1_LEFT, 92, 172, 16, 12, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	CTEXT "", WM1_MESSAGE, 4, 204, 172, 20, WS_CHILD | WS_VISIBLE | WS_GROUP
+	PUSHBUTTON "&Receive sysex...", WM1_RECVSYSEX, 116, 188, 60, 12, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	PUSHBUTTON "&Send sysex...", WM1_SENDSYSEX, 4, 188, 60, 12, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	PUSHBUTTON "&Edit", WM1_EDITPROG, 68, 188, 20, 12, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	PUSHBUTTON "&Mem", WM1_SWAPMEMCARD, 92, 188, 20, 12, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+END
+
+WM1EDIT DIALOG 9, 23, 308, 237
+STYLE 0x4 | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "WM1 Edit Program Window"
+FONT 8, "MS Sans Serif"
+BEGIN
+	LTEXT "Program Name", -1, 4, 4, 48, 12, WS_CHILD | WS_VISIBLE | WS_GROUP
+	EDITTEXT WM1E_PROG_NAME, 56, 4, 76, 12
+	PUSHBUTTON "OK", WM1E_OK, 244, 220, 24, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	PUSHBUTTON "Cancel", WM1E_CANCEL, 272, 220, 32, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	CTEXT "This window will be for editing the program.", -1, 4, 220, 236, 12, WS_CHILD | WS_VISIBLE | WS_GROUP
+END
+
+WM1CONFIG DIALOG 31, 36, 180, 76
+STYLE 0x4 | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "WM1 Configuration"
+FONT 8, "MS Sans Serif"
+BEGIN
+	CONTROL "", WM1C_LSTIN, "LISTBOX", LBS_NOTIFY | LBS_NOINTEGRALHEIGHT | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL, 4, 16, 84, 40
+	CTEXT "MIDI In", -1, 4, 4, 84, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CONTROL "", WM1C_LSTOUT, "LISTBOX", LBS_NOTIFY | LBS_NOINTEGRALHEIGHT | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL, 92, 16, 84, 40
+	CTEXT "MIDI Out", -1, 92, 4, 84, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	PUSHBUTTON "OK", WM1C_OK, 44, 60, 40, 12, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	PUSHBUTTON "Cancel", WM1C_CANCEL, 96, 60, 38, 12, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+END
+

@@ -1,0 +1,122 @@
++----------------------------------------+
+| WM1 1.0 - M1 Librarian for Windows     |
++----------------------------------------+
+|   by Angel Ortega                      |
+|   angel@triptico.com                   |
+|   Madrid (Spain)                       |
++----------------------------------------+
+| WM1 Home Page: http://www.triptico.com |
++----------------------------------------+
+
+0. What's new.
+
+The 1.0 is now a 32 bit executable, that is, only works over Windows 95, 98,
+2000 (presumably; not tested) and NT. In this version there is a new button
+that toggles i/o operation between syntesizer internal memory and a memory
+card inserted in the slot.
+
+1. Introduction and disclaimer.
+
+This brief document describes the version 1.0 of WM1 - a Korg M1
+librarian for Windows systems. The program is still in development, but
+seems to work well.
+
+The program is freeware, i.e., you can use it with no cost, and distribute
+freely while you don't modify it. I don't warranty that it may fit your
+purposes and you use it at your own risk. I'm not responsible for any damage
+caused to you or your equipment for using or not using this program.
+
+The program, now, is able to build libraries of programs. WM1 lets you
+send/receive programs to/from the M1, one by one or by groups, and read/write
+them to disk. Additionaly, it can send/receive general-purpose sysex files.
+
+The aim of this project is to build a complete console for controlling the
+Korg M1. Next thing to develop is a window to edit all the parameters of each
+sound interactively. Feel free to submit any suggestions or improvements you
+think and I'll try to do it. I want to release a new version each two/three
+months (well that was what I wanted, but two/three months seems rather
+imposible to me... let's say I'll update WM1 *regularily*).
+
+
+2. Installation.
+
+Simply uncompress the file and copy it to somewhere, add it to the Program
+Manager or run it File/Run option.
+
+
+3. Configuration.
+
+The first time you run the program, it queries the MIDI IN and MIDI OUT
+devices. Select the correct ones and click OK. If there is no IN or OUT
+devices or can't be open, WM1 will complain and exit.
+
+
+4. Use.
+
+When executed, WM1 shows a window with two main lists, buttons and a message
+line at the bottom. The left list is the library list; it holds the sounds
+in the program memory. The right is the M1 list, and has the contents of the
+synthesizer memory.
+
+The first thing WM1 tries to do is to request the sounds that the M1 has in
+its memory automatically. First, tries setting PROG MODE and, if succesful,
+queries the M1 to send all the program data. If ok, both lists will show
+the same, the dump of the M1 program data.
+
+The buttons are self-explanatory (or at least I want it). 'Open library'
+opens a library in your computer and holds it in the left list. 'Save
+library' stores this content to the disk. 'Send sysex' queries the name of
+a sysex file to send it to the MIDI OUT device; 'Recv sysex' queries the name
+of a sysex file where to store the information from MIDI IN. Of course, this
+sysex files may not be M1-related.
+
+To send a program from the library to the M1, select the program you want
+to send in the left list, select the target one in the M1 list and press the
+'-->' button. The program in that position in the M1 will be overlapped with
+the new from the library. You can select more than one item from both lists
+in the usual way. The reverse operation can be done by pressing '<--'. If
+you want to send all the library or receive all the sounds from the M1, press
+the 'send all' or 'receive all' buttons.
+
+The 'Edit' button needs a program in the library to be selected. This opens
+a new window that in the future will let you modify the parameters of the
+program; by now, you only can modify the program's name.
+
+To exit, double-click in the grey box at the upper left corner.
+
+
+5. Known bugs/limitations.
+
+- The Korg M1 Midi Global Channel *MUST* be set to 1. This will change in
+  future versions.
+
+- If you have a sysex file that contains more than one message, only the
+  first one will be sent.
+
+- The edit window only edits the program name.
+
+- When sending or receiving more than one programs at time, the lists only
+  show the modification after the last transmission.
+
+- If an error occurs when sending a program to the M1, the M1 list shows the
+  new program anyway.
+
+- Sometimes the first transmission (usually getting a sound from the M1)
+  don't work well and the program name shows as garbage; just repeat the
+  operation.
+
+- If the configuration must be changed, the file C:\WINDOWS\WM1.INI must
+  be deleted and the program rerun. This will change in future versions.
+
+
+6. More.
+
+NEW! The WM1 Home Page is at http://www.triptico.com.
+
+Send bugs and/or improvement ideas to angel@triptico.com.
+
+Enjoy using WM1 as much as I enjoyed developing it.
+
+---------------------------------------------------------------------
+Angel Ortega 1996/1999 angel@triptico.com
+
